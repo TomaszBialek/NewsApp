@@ -1,6 +1,14 @@
-package com.example.newsapp
+package com.example.newsapp.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(
+    tableName = "articles"
+)
 data class Article(
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null,
     val publishedAt: String,
     val author: String,
     val urlToImage: String,
