@@ -15,6 +15,7 @@ import com.example.newsapp.ui.NewsActivity
 import com.example.newsapp.ui.NewsViewModel
 import com.example.newsapp.util.Constants.QUERY_PAGE_SIZE
 import com.example.newsapp.util.Resource
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
 
 class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
@@ -52,7 +53,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let {
-                        Log.e(TAG, "Error occurred: $it")
+                        Snackbar.make(view, "Error occurred: $it", Snackbar.LENGTH_SHORT).show()
                     }
                 }
                 is Resource.Loading -> showProgressBar()

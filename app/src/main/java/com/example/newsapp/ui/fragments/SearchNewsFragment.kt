@@ -17,6 +17,7 @@ import com.example.newsapp.ui.NewsViewModel
 import com.example.newsapp.util.Constants
 import com.example.newsapp.util.Constants.SEARCH_NEWS_TIME_DELAY
 import com.example.newsapp.util.Resource
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_search_news.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -74,7 +75,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let {
-                        Log.e(TAG, "Error occurred: $it")
+                        Snackbar.make(view, "Error occurred: $it", Snackbar.LENGTH_SHORT).show()
                     }
                 }
                 is Resource.Loading -> showProgressBar()
