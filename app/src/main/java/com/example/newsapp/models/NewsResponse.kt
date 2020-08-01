@@ -4,6 +4,6 @@ import com.example.newsapp.models.Article
 
 data class NewsResponse(
     val totalResults: Int,
-    val articles: List<Article>,
+    val articles: MutableList<Article>,
     val status: String
 )
